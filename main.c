@@ -131,9 +131,42 @@ int main()
     } // termina switch
   }// termina while
 
-  int itemp = 0;
-  for(itemp; itemp < 4; itemp++){
-    printf("En vector %s \n",mkVal[itemp],itemp);
+  switch(estado)
+  {
+      case 1:{
+          int size;
+          int unit;
+          char* path;
+          char* name;
+
+          int itemp = 0;
+          for(itemp; itemp < 4; itemp++){
+                if(mkVal[itemp][0]=='-'){
+                        char * ptrmen;
+                        ptrmen = strtok(mkVal[itemp],"::-");
+                    while(ptrmen != NULL){
+                            printf("---------%s\n",ptrmen);
+                            if(strcmp("size", ptrmen) == 0){
+                                printf("encuentra size :D \n");
+                            }else if(strcmp("path", ptrmen) == 0){
+                                printf("encuentra path :D \n");
+                            }else if(strcmp("name", ptrmen) == 0){
+                                printf("encuentra name :D \n");
+                    }
+
+                        ptrmen = strtok (NULL, "::-");
+                    } // termina while
+
+                }else if(mkVal[itemp][0]=='+'){
+                    printf("encuentra mas ->");
+                }else{
+                    printf("Errooooor :(");
+                }
+            printf("En vector %s \n",mkVal[itemp],itemp);
+          }
+      break;
+      }
   }
+
   return 0;
 } // termina int main
